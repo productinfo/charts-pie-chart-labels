@@ -1,39 +1,22 @@
-Shinobi Charts/Grids/Essentials Project Title (Objective-C/Xamarin/Android)
+ShinobiCharts Pie Chart Labels (Objective-C)
 =====================
 
-Description of project (include link to blog post if there is one)
+This app builds on the PieChart demo shipped with ShinobiCharts, to fully customize the pie and donut chart labels and even move them out of the slices! There is an accompanying blog post [here](http://www.shinobicontrols.com/blog/posts/2012/08/06/pie-chart-labels-that-are-out-of-this-slice/).
 
 ![Screenshot](screenshot.png?raw=true)
 
 Building the project
 ------------------
 
-In order to build this project you'll need a copy of ShinobiCharts/Grids/Essentials. If you don't have it yet, you can download a free trial from the [ShinobiCharts/Grids/Essentials website](link to appropriate section).
+In order to build this project you'll need a copy of ShinobiCharts. If you don't have it yet, you can download a free trial from the [ShinobiCharts website](http://www.shinobicontrols.com/shinobicharts/).
 
 Once you've downloaded and unzipped ShinobiCharts/Grids/Essentials, open up the project in XCode, and drag ShinobiCharts/Grids/Essentials.embeddedframework from the finder into Xcode's 'frameworks' group, and XCode will sort out all the header and linker paths for you.
 
-**Delete the inappropriate sections (and alter the chart/grid name in the sample code if appropriate):**
+If you're using the trial version you'll need to add your license key. To do so, open up ViewController.m and edit the following line:
 
-If you're using the trial version you'll need to add your license key. To do so, open up ViewController.m and add the following line after the chart is initialised:
-
-    chart.licenseKey=@"your license key";
-
-If you're using the trial version you'll need to add your license key. To do so, open up ViewController.m and add the following line after the grid is initialised:
-
-    grid.licenseKey=@"your license key";
-
-If you’re using the trial version you’ll need to add your license key. To do so, open up AppDelegate.m, import <ShinobiEssentials/SEssentials.h>, and set the license key inside application:didFinishLaunchingWithOptions: as follows:
-
-    #import <ShinobiEssentials/SEssentials.h>
-
-    @implementation AppDelegate
-
-    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-    {
-        [SEssentials setLicenseKey:@"your license key"];
-        …
-    }
-
+    //Enter your trial license key here
+    NSString *licenseKey = @"";
+    
 Contributing
 ------------
 
