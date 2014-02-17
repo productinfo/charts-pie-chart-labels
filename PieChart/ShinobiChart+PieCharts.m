@@ -28,7 +28,7 @@
     ShinobiChart *chart = [[ShinobiChart alloc] initWithFrame:frame];
     chart.autoresizingMask = ~UIViewAutoresizingNone;
         
-    SChartDarkTheme *d = [SChartDarkTheme new];
+    SChartTheme *d = chart.theme;
     if (!iPad) {
         d.legendStyle.font = [UIFont fontWithName:d.lightFontName size:13.f];
     }
@@ -47,8 +47,6 @@
     
     ShinobiChart *chart = [[ShinobiChart alloc] initWithFrame:frame];
     chart.autoresizingMask = ~UIViewAutoresizingNone;
-    
-    chart.theme = [SChartDarkTheme new];
     
     chart.legend.hidden = NO;
     chart.legend.position = SChartLegendPositionBottomMiddle;

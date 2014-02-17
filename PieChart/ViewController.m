@@ -86,7 +86,7 @@
     //Add an indication of selected OS to our donut
     selectedOSLabel = [[UILabel alloc] initWithFrame:CGRectMake(140.f, 180, 120, 35)];
     selectedOSLabel.font = [UIFont fontWithName:pieChart.theme.regularFontName size:22.f];
-    selectedOSLabel.textColor = [UIColor whiteColor];
+    selectedOSLabel.textColor = [UIColor darkTextColor];
     selectedOSLabel.backgroundColor = [UIColor clearColor];
     selectedOSLabel.textAlignment = UITextAlignmentCenter;
     selectedOSLabel.text = datasource.selectedOS;
@@ -195,7 +195,7 @@
             endOfLine.y = oldLabelCenter.y - (extrusion-15.f) * sinf(angle);
             
             //[label setText:datapoint.xValue];
-            label.textColor = [UIColor whiteColor];
+            label.textColor = [UIColor darkTextColor];
             [label sizeToFit];
             [label setCenter:labelCenter]; // this must be after sizeToFit
             [label setHidden:NO];
@@ -227,7 +227,7 @@
         first = NO;
         [self performSelector:@selector(initialSelectionForChart:) withObject:chart afterDelay:0.1f];
     }
-
+    
 }
 
 - (void)initialSelectionForChart:(ShinobiChart*)chart {
