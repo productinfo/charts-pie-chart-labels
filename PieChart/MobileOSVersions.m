@@ -30,31 +30,30 @@
         
         _osData = [NSMutableDictionary new];
         _versionData = [NSMutableDictionary new];
-        _dataKeys = [NSArray arrayWithObjects:@"item", @"uptake_pct", nil];
-        _osTypes = [NSArray arrayWithObjects:@"iOS", @"Android",@"BlackBerry",@"WindowsPhone",@"Symbian", nil];
+        _dataKeys = @[@"item", @"uptake_pct"];
+        _osTypes = @[@"iOS", @"Android",@"BlackBerry",@"WindowsPhone",@"Symbian"];
         
-        [_osData setObject:[NSNumber numberWithFloat:52.4f] forKey:@"Android"];
-        [_osData setObject:[NSNumber numberWithFloat:39.2f] forKey:@"iOS"];
-        [_osData setObject:[NSNumber numberWithFloat:4.8f] forKey:@"BlackBerry"];
-        [_osData setObject:[NSNumber numberWithFloat:3.f] forKey:@"WindowsPhone"];
-        [_osData setObject:[NSNumber numberWithFloat:0.4f] forKey:@"Symbian"];
+        _osData[@"Android"] = @52.4f;
+        _osData[@"iOS"] = @39.2f;
+        _osData[@"BlackBerry"] = @4.8f;
+        _osData[@"WindowsPhone"] = @3.f;
+        _osData[@"Symbian"] = @0.4f;
         
         NSMutableArray *iosData = [NSMutableArray new];
-        [iosData addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"7.x", [NSNumber numberWithFloat:78.3f],nil] forKeys:_dataKeys]];
-        [iosData addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"6.x", [NSNumber numberWithFloat:15.8f],nil] forKeys:_dataKeys]];
-        [iosData addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"5.x", [NSNumber numberWithFloat:5.1f],nil] forKeys:_dataKeys]];
-        [iosData addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"4.x", [NSNumber numberWithFloat:0.7f],nil] forKeys:_dataKeys]];
-        [iosData addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"3.x", [NSNumber numberWithFloat:0.1f],nil] forKeys:_dataKeys]];
-        [_versionData setObject:iosData forKey:[_osTypes objectAtIndex:0]];
+        [iosData addObject:[NSDictionary dictionaryWithObjects:@[@"7.x", @78.3f] forKeys:_dataKeys]];
+        [iosData addObject:[NSDictionary dictionaryWithObjects:@[@"6.x", @15.8f] forKeys:_dataKeys]];
+        [iosData addObject:[NSDictionary dictionaryWithObjects:@[@"5.x", @5.1f] forKeys:_dataKeys]];
+        [iosData addObject:[NSDictionary dictionaryWithObjects:@[@"4.x", @0.7f] forKeys:_dataKeys]];
+        [iosData addObject:[NSDictionary dictionaryWithObjects:@[@"3.x", @0.1f] forKeys:_dataKeys]];
+        _versionData[_osTypes[0]] = iosData;
         
         NSMutableArray *androidData = [NSMutableArray new];
-        [androidData addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"4.4", [NSNumber numberWithFloat:1.4f],nil] forKeys:_dataKeys]];
-        [androidData addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"4.1.x-4.3.x", [NSNumber numberWithFloat:59.1f],nil] forKeys:_dataKeys]];
-        [androidData addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"4.0.x", [NSNumber numberWithFloat:16.9f],nil] forKeys:_dataKeys]];
-        [androidData addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"3.x", [NSNumber numberWithFloat:0.1f],nil] forKeys:_dataKeys]];
-        [androidData addObject:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"2.x", [NSNumber numberWithFloat:22.5f],nil] forKeys:_dataKeys]];
-        [_versionData setObject:androidData forKey:[_osTypes objectAtIndex:1]];
-        
+        [androidData addObject:[NSDictionary dictionaryWithObjects:@[@"4.4", @1.4f] forKeys:_dataKeys]];
+        [androidData addObject:[NSDictionary dictionaryWithObjects:@[@"4.1.x-4.3.x", @59.1f] forKeys:_dataKeys]];
+        [androidData addObject:[NSDictionary dictionaryWithObjects:@[@"4.0.x", @16.9f] forKeys:_dataKeys]];
+        [androidData addObject:[NSDictionary dictionaryWithObjects:@[@"3.x", @0.1f] forKeys:_dataKeys]];
+        [androidData addObject:[NSDictionary dictionaryWithObjects:@[@"2.x", @22.5f] forKeys:_dataKeys]];
+        _versionData[_osTypes[1]] = androidData;       
         
         
     }

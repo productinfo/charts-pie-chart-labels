@@ -28,12 +28,11 @@
     ShinobiChart *chart = [[ShinobiChart alloc] initWithFrame:frame];
     chart.autoresizingMask = ~UIViewAutoresizingNone;
         
-    SChartTheme *d = chart.theme;
+    SChartTheme *d = [SChartiOS7Theme new];
     if (!iPad) {
         d.legendStyle.font = [UIFont fontWithName:d.lightFontName size:13.f];
     }
-    chart.theme = d;
-    
+    [chart applyTheme:d];
     
     chart.legend.hidden = NO;
     chart.legend.position = SChartLegendPositionBottomMiddle;
@@ -62,7 +61,7 @@
     p.style.showCrust = NO;
     p.selectedStyle.showCrust = NO;
     p.labelFormatString = @"%.0f%%";
-    p.selectedPosition = [NSNumber numberWithFloat:-M_PI/2.f];
+    p.selectedPosition = [NSNumber numberWithFloat:(float)(-M_PI/2.f)];
     p.animationEnabled = YES;
     p.gesturePanningEnabled = YES;
     p.selectionEnabledDuringPanning = YES;
@@ -74,7 +73,7 @@
     d.style.showCrust = NO;
     d.selectedStyle.showCrust = NO;
     d.labelFormatString = @"%.0f%%";
-    d.style.labelFont = [UIFont fontWithName:self.theme.lightFontName size:16.f];
+    d.style.labelFont = [UIFont fontWithName:[SChartiOS7Theme new].lightFontName size:16.f];
     d.outerRadius = 105.f;
     d.innerRadius = 65.f;
     d.selectedStyle.protrusion = 0.f;

@@ -37,8 +37,8 @@
     for(NSArray *pair in [pointPairs allValues]){
         CGPoint first, second;
 
-        [(NSValue *)[pair objectAtIndex:0] getValue:&first];
-        [(NSValue *)[pair objectAtIndex:1] getValue:&second];
+        [(NSValue *)pair[0] getValue:&first];
+        [(NSValue *)pair[1] getValue:&second];
         
         CGContextBeginPath(c);
         
@@ -70,14 +70,14 @@
     NSValue *labelKey = [NSValue valueWithNonretainedObject:label];
     
     // If we already have a line for this label, update it.  Otherwise add a new line to the view
-    NSMutableArray *existingPair = [pointPairs objectForKey:labelKey];
+    NSMutableArray *existingPair = pointPairs[labelKey];
     if (!existingPair)  {
         NSMutableArray *pair = [NSMutableArray arrayWithObjects:firstValue, secondValue, nil];
-        [pointPairs setObject:pair forKey:labelKey];
+        pointPairs[labelKey] = pair;
     }
     else    {
-        [existingPair replaceObjectAtIndex:0 withObject:firstValue];
-        [existingPair replaceObjectAtIndex:1 withObject:secondValue];
+        existingPair[0] = firstValue;
+        existingPair[1] = secondValue;
     }
     
     [self setNeedsDisplay];

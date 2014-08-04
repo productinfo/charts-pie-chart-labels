@@ -34,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	  // Do any additional setup after loading the view, typically from a nib.
     BOOL iPad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
     
     //Load our mobile data for both of our charts
@@ -47,7 +47,7 @@
     
     CGRect pieFrame;
     if (iPad) {
-        pieFrame = CGRectMake(25,25,350,1000);
+        pieFrame = CGRectMake(25,25,self.view.bounds.size.width/2-50,self.view.bounds.size.height-50);
     } else {
         pieFrame = self.view.bounds;
     }
@@ -65,7 +65,7 @@
     CGRect donutFrame;
     //only display our donut if we have room - ie: iPad
     if (iPad) {
-        donutFrame = CGRectMake(425,225,300,700);
+        donutFrame = CGRectMake(self.view.bounds.size.width/2+25,150,self.view.bounds.size.width/2-50,700);
     
         donutChart = [ShinobiChart donutChartForOSVersionDataWithFrame:donutFrame];
         donutChart.title = @"Versions of OS currently in use";
@@ -84,8 +84,8 @@
     datasource.selectedOS = @"iOS";
     
     //Add an indication of selected OS to our donut
-    selectedOSLabel = [[UILabel alloc] initWithFrame:CGRectMake(140.f, 180, 120, 35)];
-    selectedOSLabel.font = [UIFont fontWithName:pieChart.theme.regularFontName size:22.f];
+    selectedOSLabel = [[UILabel alloc] initWithFrame:CGRectMake(160.f, 220, 120, 35)];
+    selectedOSLabel.font = [UIFont systemFontOfSize:22.f];
     selectedOSLabel.textColor = [UIColor darkTextColor];
     selectedOSLabel.backgroundColor = [UIColor clearColor];
     selectedOSLabel.textAlignment = UITextAlignmentCenter;
@@ -128,8 +128,8 @@
         SChartPieSeries *pieSeries = (SChartPieSeries*)series;
         
         for (int i=0; i<pieSeries.dataSeries.dataPoints.count; i++) {
-            SChartDataPoint *dp = [pieSeries.dataSeries.dataPoints objectAtIndex:i];
-            if (![dp.xValue isEqualToString:dataPoint.name]) {
+            SChartDataPoint *dp = pieSeries.dataSeries.dataPoints[i];
+            if (![[dp sChartXValue] isEqualToString:dataPoint.name]) {
                 if (dataPoint.selected) {
                     [pieSeries setSlice:i asSelected:NO];
                 }
@@ -140,11 +140,11 @@
         selectedOSLabel.text = datasource.selectedOS;
         
         [donutChart reloadData];
-        [donutChart redrawChartAndGL:YES];
+        [donutChart redrawChartIncludePlotArea:YES];
     }
 }
 
-- (void)sChart:(ShinobiChart *)chart alterLabel:(UILabel *)label forDatapoint:(SChartRadialDataPoint *)datapoint atSliceIndex:(int)index inRadialSeries:(SChartRadialSeries *)series {
+- (void)sChart:(ShinobiChart *)chart alterLabel:(UILabel *)label forDatapoint:(SChartRadialDataPoint *)datapoint atSliceIndex:(NSInteger)index inRadialSeries:(SChartRadialSeries *)series {
     
     //For our pie chart - stop displaying labels for narrow slices
     if (chart == pieChart) {
@@ -231,9 +231,9 @@
 }
 
 - (void)initialSelectionForChart:(ShinobiChart*)chart {
-    SChartPieSeries *ps = (SChartPieSeries*)[chart.allChartSeries lastObject];
+    SChartPieSeries *ps = (SChartPieSeries*)[chart.series lastObject];
     [ps setSlice:[datasource selectedSliceIndex] asSelected:YES];
-    [chart redrawChartAndGL:YES];
+    [chart redrawChartIncludePlotArea:YES];
 }
 
 

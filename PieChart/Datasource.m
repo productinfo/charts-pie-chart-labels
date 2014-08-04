@@ -24,11 +24,11 @@
 
 @implementation Datasource
 
-- (int)numberOfSeriesInSChart:(ShinobiChart *)chart {
+- (NSInteger)numberOfSeriesInSChart:(ShinobiChart *)chart {
     return 1;
 }
 
-- (SChartSeries*)sChart:(ShinobiChart *)chart seriesAtIndex:(int)index {
+- (SChartSeries*)sChart:(ShinobiChart *)chart seriesAtIndex:(NSInteger)index {
     SChartSeries *series;
     if (chart == _pieChart) {
         series = [chart pieSeriesForOS];
@@ -38,30 +38,29 @@
     return series;
 }
 
-- (int)sChart:(ShinobiChart *)chart numberOfDataPointsForSeriesAtIndex:(int)seriesIndex {
-    int count;
+- (NSInteger)sChart:(ShinobiChart *)chart numberOfDataPointsForSeriesAtIndex:(NSInteger)seriesIndex {
+    NSInteger count;
     if (chart == _pieChart) {
         count = [_osData osTypes].count;
     } else {
-        count = [[[_osData versionData] objectForKey:_selectedOS] count];
+        count = [[_osData versionData][_selectedOS] count];
     }
     return count;
 }
 
-- (id<SChartData>)sChart:(ShinobiChart *)chart dataPointAtIndex:(int)dataIndex forSeriesAtIndex:(int)seriesIndex {
+- (id<SChartData>)sChart:(ShinobiChart *)chart dataPointAtIndex:(NSInteger)dataIndex forSeriesAtIndex:(NSInteger)seriesIndex {
     SChartRadialDataPoint *dp = [SChartRadialDataPoint new];
     if (chart == _pieChart) {
-        dp.name = [[_osData osTypes] objectAtIndex:dataIndex];
-        dp.value = [[_osData osData] objectForKey:dp.name];
-        
+        dp.name = [_osData osTypes][dataIndex];
+        dp.value = [_osData osData][dp.name];
     } else {
-        dp.name = [[[[_osData versionData] objectForKey:_selectedOS] objectAtIndex:dataIndex] objectForKey:[[_osData dataKeys] objectAtIndex:0]];
-        dp.value = [[[[_osData versionData] objectForKey:_selectedOS] objectAtIndex:dataIndex] objectForKey:[[_osData dataKeys] objectAtIndex:1]];
+        dp.name = [_osData versionData][_selectedOS][dataIndex][[_osData dataKeys][0]];
+        dp.value = [_osData versionData][_selectedOS][dataIndex][[_osData dataKeys][1]];
     }
     return dp;
 }
 
-- (int)selectedSliceIndex; {
+- (NSInteger)selectedSliceIndex; {
     return [[_osData osTypes] indexOfObject:_selectedOS];
 }
 

@@ -25,7 +25,7 @@
 #import "Datasource.h"
 #import "LineView.h"
 
-@interface ViewController : UIViewController <SChartDatasource, SChartDelegate> {
+@interface ViewController : UIViewController <SChartDelegate> {
     ShinobiChart *pieChart;
     ShinobiChart *donutChart;
     MobileOSVersions *mobileOSVersions;

@@ -32,6 +32,6 @@
 
 @property (nonatomic) NSString *selectedOS;
 
-- (int)selectedSliceIndex;
+- (NSInteger)selectedSliceIndex;
 
 @end
