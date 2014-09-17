@@ -10,7 +10,7 @@
 	<string>PieChart</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2A74AFAE-FEF9-40A5-B6A4-07469239B458</key>
+		<key>DFCC7F01C4EF015ECE7204A14F25BBC9D808F460</key>
 		<string>https://github.com/ShinobiControls/charts-pie-chart-labels.git</string>
 		<key>EB99895D-0ED1-4A1B-92E5-67DB50F3BB40</key>
 		<string>ssh://git.scottlogic.co.uk:2222/shinobi-developer.git</string>
@@ -19,24 +19,24 @@
 	<string>PieChart.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2A74AFAE-FEF9-40A5-B6A4-07469239B458</key>
+		<key>DFCC7F01C4EF015ECE7204A14F25BBC9D808F460</key>
 		<string>../..</string>
 		<key>EB99895D-0ED1-4A1B-92E5-67DB50F3BB40</key>
-		<string>../../../../../Shinobi/Developer</string>
+		<string>../../../Shinobi/Developer</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ShinobiControls/charts-pie-chart-labels.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2A74AFAE-FEF9-40A5-B6A4-07469239B458</string>
+	<string>DFCC7F01C4EF015ECE7204A14F25BBC9D808F460</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2A74AFAE-FEF9-40A5-B6A4-07469239B458</string>
+			<string>DFCC7F01C4EF015ECE7204A14F25BBC9D808F460</string>
 			<key>IDESourceControlWCCName</key>
 			<string>charts-pie-chart-labels</string>
 		</dict>
