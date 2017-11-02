@@ -5,6 +5,10 @@ This app builds on the PieChart demo shipped with ShinobiCharts, to fully custom
 
 ![Screenshot](screenshot.png?raw=true)
 
+*Note that as of* **shinobicharts** *v2.8.0, pie and donut chart spokes are part of the library, so there's no need for the extra work as shown in this sample. Spokes can now be enabled by setting `style.spokeStyle.showSpokes = YES` on the pie/donut series’ style object.*
+
+    
+
 Building the project
 ------------------
 
